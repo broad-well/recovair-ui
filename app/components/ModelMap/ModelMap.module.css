@@ -1,0 +1,31 @@
+.map-container {
+    width: 100%;
+    height: 800px;
+}
+
+.airport-marker {
+    background-color: darkblue;
+    color: white;
+    font-size: 10px;
+    height: rem(16px);
+    z-index: 50;
+}
+
+.airport-disrupted {
+    background-color: brown;
+    border: 1px solid red;
+}
+
+.flight-marker {
+    background-color: black;
+    width: rem(6px);
+    height: rem(6px);
+    z-index: 48;
+}
+
+.delayed {
+    background-color: red;
+    border: 1px solid black;
+    width: rem(8px);
+    height: rem(8px);
+}
