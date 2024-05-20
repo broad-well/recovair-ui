@@ -38,7 +38,9 @@ export default function ScenarioRun() {
     const flightTimeline = useMemo(() => {
         const tree = new IntervalTree();
         for (const [id, flight] of Object.entries(loaded.model.flights)) {
-            tree.insert(new Interval(flight.start, flight.end), id);
+            if (flight.start !== undefined && flight.end !== undefined) {
+                tree.insert(new Interval(flight.start, flight.end), id);
+            }
         }
         return tree;
     }, [loaded]);

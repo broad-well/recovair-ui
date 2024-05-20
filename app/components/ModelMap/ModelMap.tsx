@@ -26,6 +26,9 @@ function flightLocation(flight: Flight, props: MapProps): {lat: number, lng: num
     Math.min(1, (props.time.getTime() - flight.start) / (flight.end - flight.start));
   const originLoc = props.airportLocations[flight.origin];
   const destLoc = props.airportLocations[flight.dest];
+  if (originLoc === undefined || destLoc === undefined || isNaN(fracCompleted)) {
+    console.error('Invalid flight for location finding', flight);
+  }
   return {
     lat: originLoc.lat * (1 - fracCompleted) + destLoc.lat * fracCompleted,
     lng: originLoc.lng * (1 - fracCompleted) + destLoc.lng * fracCompleted,
